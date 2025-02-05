@@ -13,17 +13,21 @@ export const cartSlice = createSlice({
     increaseAmount: (state) => {
       state.amount = state.amount + 1;
     },
-    decreseAmount: (state, action) => {
+    decreseAmount: (state) => {
       state.amount = state.amount - 1;
-      console.log(action);
     },
     clearCart: (state) => {
       //state.cartItems = [];
       //When you use return { cartItems: [] }; inside clearCart, the entire state is replaced with { cartItems: [] }, losing all other properties from initialState.
       return { cartItems: [] };
     },
+    removeItem: (state, action) => {
+      const itemId = action.payload;
+      state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+    },
   },
 });
-export const { increaseAmount, decreseAmount, clearCart } = cartSlice.actions;
+export const { increaseAmount, decreseAmount, clearCart, removeItem } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
