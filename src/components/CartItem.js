@@ -26,7 +26,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
       <div>
         <button
           onClick={() => {
-            dispatch(increaseAmount());
+            dispatch(increaseAmount({ id }));
           }}
           className="amount-btn"
         >
@@ -35,7 +35,10 @@ const CartItem = ({ id, img, title, price, amount }) => {
         <p className="amount">{amount}</p>
         <button
           onClick={() => {
-            dispatch(decreseAmount());
+            if (amount === 1) {
+              return dispatch(removeItem(id));
+            }
+            dispatch(decreseAmount({ id }));
           }}
           className="amount-btn"
         >
