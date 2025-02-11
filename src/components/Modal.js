@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../store/slice/modalSlice";
 import { clearCart } from "../store/slice/cartSlice";
