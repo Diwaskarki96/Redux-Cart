@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "./CartItem";
-import { clearCart } from "../store/slice/cartSlice";
 import { openModal } from "../store/slice/modalSlice";
 const CartContainer = () => {
   const { cartItems, total, amount } = useSelector((state) => state.cart);
